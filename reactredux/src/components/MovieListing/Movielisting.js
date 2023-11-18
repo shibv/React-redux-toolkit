@@ -3,19 +3,19 @@ import { useSelector } from 'react-redux'
 import { getAllMovies } from '../../features/movies/movieSlice'
 import { matchPath } from 'react-router-dom';
 import Moviecard from '../MovieCard/Moviecard';
+import "./Movielisting.css"
 
 
 const Movielisting = () => {
 
   const movies = useSelector(getAllMovies);
-  console.log(movies)
+  let renderMovies = " ";
 
-  let renderMovies = movies.Response === "True" ? (
+   renderMovies = movies.Response === "True" ? (
       
-         movies.Search.map((movie, index) => {
-           <Moviecard key={index} data ={movie} />
-          
-         })
+         movies.Search.map((movie, index) => (
+          <Moviecard key={index} data={movie} />
+         ))
   ) : (
     <div className='movies-error'>
     <h3>{movies.error}</h3>

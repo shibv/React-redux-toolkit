@@ -5,12 +5,13 @@ import movieApi from '../../common/api/MovieApi.js'
 import {APIKEY} from '../../common/api/MovieApiKey.js'
 import { useDispatch } from 'react-redux'
 import { addMovies } from '../../features/movies/movieSlice.js'
+import avt from "../../images/avt.jpg"
 
 
 const Home = () => {
 
   const dispatch = useDispatch();
-  const movieText = "hary";
+  const movieText = "love";
 
   useEffect(() => {
 
@@ -24,16 +25,18 @@ const Home = () => {
         .catch((err) =>{
           console.log(err)
         })
-        console.log(response.data)
+        
         dispatch(addMovies(response.data))
     };
 
     fetchMovie();
-  }, [])
+  }, [movieText])
 
   return (
     <div>
-    <div className="banner-img"></div>
+    <div className="banner-img">
+      
+    </div>
      <Movielisting />
   </div>
   )

@@ -1,6 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import './Header.css'
+import avt from "../../images/avt.jpg"
+
+
 const Header = () => {
   return (
     <div className='header'>
